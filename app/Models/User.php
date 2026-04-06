@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'city',
         'status',
         'role_id',
     ];
@@ -56,5 +58,20 @@ class User extends Authenticatable
     public function reservations()
     {
         return $this->hasMany(Reservation::class, 'user_id');
+    }
+
+    public function forfaitReservations()
+    {
+        return $this->hasMany(ForfaitReservation::class, 'user_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'user_id');
+    }
+
+    public function forfaits()
+    {
+        return $this->hasMany(Forfait::class, 'user_id');
     }
 }

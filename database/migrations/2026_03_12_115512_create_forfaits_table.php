@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('forfaits', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', ['caftans', 'accessoires']);
-            $table->float('prix');
-            $table->integer('quantite');
-            $table->string('url');
-            $table->timestamps();
+            $table->string('nom');
+            $table->text('description')->nullable();
+            $table->decimal('prix', 10, 2);
+            $table->integer('quantite')->default(1);
+            $table->string('url')->nullable();
+            $table->integer('duration')->default(48); 
+            $table->json('inclusions')->nullable();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

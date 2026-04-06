@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('status',['active','pending']);
-            $table->foreignId('role_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['active', 'pending']);
+            $table->unsignedBigInteger('role_id')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

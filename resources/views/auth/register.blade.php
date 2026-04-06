@@ -8,79 +8,94 @@
         <h2 class="mt-6 text-center text-3xl font-serif font-bold text-gray-900">
             Créer un compte
         </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+            Déjà inscrit? 
+            <a href="{{ route('login') }}" class="font-medium text-[#d4af37] hover:text-[#b5952f]">Se connecter</a>
+        </p>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
-        <div class="bg-white py-8 px-4 shadow-sm border sm:rounded-2xl sm:px-10">
+        <div class="bg-white py-8 px-4 shadow-sm border border-gray-100 sm:rounded-2xl sm:px-10">
+            
+            @if($errors->any())
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <ul class="text-sm text-red-700">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-            <form class="space-y-6" action="{{ route('register') }}" method="POST">
+            <form class="space-y-6" action="{{ route('register.post') }}" method="POST">
                 @csrf
                 
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <input name="first_name" type="text" placeholder="Prénom"
+                        <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
+                        <input id="first_name" name="first_name" type="text" placeholder="Fatima"
                         value="{{ old('first_name') }}"
-                        class="w-full border p-2 rounded">
-                        @error('first_name') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition @error('first_name') border-red-500 @enderror">
+                        @error('first_name') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
-                        <input name="last_name" type="text" placeholder="Nom"
+                        <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                        <input id="last_name" name="last_name" type="text" placeholder="Zahra"
                         value="{{ old('last_name') }}"
-                        class="w-full border p-2 rounded">
-                        @error('last_name') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition @error('last_name') border-red-500 @enderror">
+                        @error('last_name') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
                 </div>
 
                 <div>
-                    <input name="phone" type="text" placeholder="Téléphone"
-                    value="{{ old('phone') }}"
-                    class="w-full border p-2 rounded">
-                    @error('phone') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input id="email" name="email" type="email" placeholder="votre@email.com"
+                    value="{{ old('email') }}"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition @error('email') border-red-500 @enderror">
+                    @error('email') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                 </div>
 
                 <div>
-                    <input name="email" type="email" placeholder="Email"
-                    value="{{ old('email') }}"
-                    class="w-full border p-2 rounded">
-                    @error('email') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+212 6 XX XX XX XX"
+                    value="{{ old('phone') }}"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition @error('phone') border-red-500 @enderror">
+                    @error('phone') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <input name="password" type="password" placeholder="Mot de passe"
-                        class="w-full border p-2 rounded">
-                        @error('password') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+                        <input id="password" name="password" type="password" placeholder="••••••••"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition @error('password') border-red-500 @enderror">
+                        @error('password') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
-                        <input name="password_confirmation" type="password" placeholder="Confirmer"
-                        class="w-full border p-2 rounded">
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-2">Confirmer MDP</label>
+                        <input id="password_confirmation" name="password_confirmation" type="password" placeholder="••••••••"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-[#d4af37] focus:border-[#d4af37] transition">
                     </div>
                 </div>
 
-                <div class="flex items-center">
-                    <input name="terms" type="checkbox" required>
-                    <span class="ml-2 text-sm">J'accepte les conditions</span>
+                <div class="flex items-start">
+                    <input type="checkbox" id="terms" name="terms" class="w-4 h-4 text-[#d4af37] rounded focus:ring-[#d4af37] mt-1" required>
+                    <label for="terms" class="ml-2 text-sm text-gray-600">
+                        J'accepte les <a href="#" class="text-[#d4af37] hover:underline">conditions d'utilisation</a> et la <a href="#" class="text-[#d4af37] hover:underline">politique de confidentialité</a>
+                    </label>
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-black text-white py-2 rounded hover:bg-yellow-600">
-                    Créer un compte
+                    class="w-full bg-[#d4af37] text-white font-semibold py-2 rounded-lg hover:bg-[#b5952f] transition">
+                    Créer mon compte
                 </button>
-
             </form>
 
-            @if(session('success'))
-                <p class="text-green-500 text-center mt-4">{{ session('success') }}</p>
-            @endif
-
-            <div class="mt-4 text-center">
-                <a href="{{ route('login') }}" class="text-yellow-600">
-                    Déjà un compte ?
-                </a>
-            </div>
-
+            <p class="mt-6 text-center text-sm text-gray-600">
+                Déjà inscrit? 
+                <a href="{{ route('login') }}" class="font-medium text-[#d4af37] hover:text-[#b5952f]">Se connecter ici</a>
+            </p>
         </div>
     </div>
 </div>

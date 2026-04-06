@@ -3,41 +3,74 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\Models\Role;
 use App\Models\Category;
+use App\Models\User;
 use App\Models\Product;
-use App\Models\Reservation;
 use App\Models\Forfait;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Reservation;
 
 class DatabaseSeeder extends Seeder
 {
+    /**
+     * Seed the application's database.
+     */
     public function run(): void
     {
-        $admin = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 1
-        ]);
 
-        $clients = User::factory(10)->create([
-            'role_id' => 2
+        $roles = [
+            ['name' => 'Admin', 'description' => 'Administrator of the platform'],
+            ['name' => 'Client', 'description' => 'Customer/Client'],
+        ];
+        DB::table('roles')->insert($roles);
+        $categories = [
+            ['name' => 'Caftans', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Accessoires', 'created_at' => now(), 'updated_at' => now()],
+        ];
+        DB::table('categories')->insert($categories);
+     
+        User::factory()->admin()->create([
+            'name' => 'Ilham Admin',
+            'email' => 'admin@ilhamcollection.com',
+            'phone' => '+212612345678',
+            'city' => 'Casablanca',
         ]);
-
-        $categories = Category::factory(5)->create();
-
-        $products = Product::factory(10)->create([
-            'user_id' => $admin->id
+        User::factory()->admin()->create([
+            'name' => 'Test Admin',
+            'email' => 'testadmin@ilhamcollection.com',
+            'phone' => '+212698765432',
+            'city' => 'Rabat',
         ]);
+    
+        $clients = User::factory()->count(20)->create();
+        $categoryIds = [1, 2]; 
+        $adminId = 1;
 
-        Forfait::factory(5)->create([
-            'user_id' => $admin->id
+        for ($i = 0; $i < 40; $i++) {
+            Product::factory()->create([
+                'category_id' => $categoryIds[floor($i / 20)], 
+                'user_id' => $adminId
+            ]);
+        }
+    
+        Forfait::factory()->count(10)->create([
+            'user_id' => $adminId
         ]);
+       
+        $products = Product::all();
+        $resCount = 0;
 
-        Reservation::factory(15)->create([
-            'user_id' => $clients->random()->id,
-            'product_id' => $products->random()->id
-        ]);
+        for ($i = 0; $i < 30; $i++) {
+            $reservation = Reservation::factory()->create();
+
+            
+            $productCount = rand(1, 4);
+            $randomProducts = $products->random($productCount);
+            $reservation->products()->sync($randomProducts->pluck('id')->toArray());
+
+            $resCount++;
+        }
+        
     }
 }
