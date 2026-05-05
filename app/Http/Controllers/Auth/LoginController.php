@@ -10,17 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    /**
-     * Show login form
-     */
+    //afficher le formulaire
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    /**
-     * Handle login request
-     */
+    
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -28,7 +24,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        // Attempt to authenticate
+   
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 

@@ -69,39 +69,5 @@ class ClientController extends Controller
     }
 
     
-    public function export()
-    {
-        $clients = User::where('role_id', 2)
-            ->with('reservations')
-            ->get();
-
-        // Convert to CSV
-        $filename = 'clients_' . date('Y-m-d_H-i-s') . '.csv';
-        $headers = [
-            'Content-Type' => 'text/csv; charset=utf-8',
-            'Content-Disposition' => "attachment; filename=\"$filename\""
-        ];
-
-        $handle = fopen('php://output', 'w');
-        fputcsv($handle, ['Nom', 'Email', 'Téléphone', 'Ville', 'Réservations', 'Date d\'inscription']);
-
-        foreach ($clients as $client) {
-            fputcsv($handle, [
-                $client->name,
-                $client->email,
-                $client->phone ?? '',
-                $client->city ?? '',
-                $client->reservations_count,
-                $client->created_at->format('Y-m-d')
-            ]);
-        }
-
-        fclose($handle);
-
-        return response()->stream(
-            function () use ($handle) {},
-            200,
-            $headers
-        );
-    }
+    
 }

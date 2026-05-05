@@ -38,7 +38,7 @@ Route::get('/temoignages', function () {
 
 // Contact (Public)
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
     })->name('profile.edit');
 
     Route::put('/profile', function () {
-        $user = auth()->user();
+        $user = auth::user();
         $user->update([
             'name' => request('name'),
             'phone' => request('phone'),
@@ -71,7 +71,6 @@ Route::middleware('auth')->group(function () {
         return redirect()->route('profile')->with('success', 'Profil mis à jour avec succès!');
     })->name('profile.update');
 
-    // Reservations (Protected)
     Route::get('/reservation', [ReservationController::class, 'create'])->name('reservation.create');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
     Route::get('/reservation/confirmation', [ReservationController::class, 'confirmation'])->name('reservation.confirmation');
@@ -85,21 +84,15 @@ Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->prefix
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
-    // Catalog Management
     Route::resource('catalog', CatalogController::class);
     Route::get('/catalog/categories', [CatalogController::class, 'categories'])->name('catalog.categories');
     Route::post('/catalog/categories', [CatalogController::class, 'storeCategory'])->name('catalog.storeCategory');
     Route::delete('/catalog/categories/{category}', [CatalogController::class, 'destroyCategory'])->name('catalog.destroyCategory');
 
-    // Client Management
     Route::resource('cliente', ClientController::class, ['except' => ['show']]);
-    Route::get('/clientes/export', [ClientController::class, 'export'])->name('clientes.export');
 
-    // Reservations Management
     Route::resource('reservations', ReservationAdminController::class, ['only' => ['index', 'show', 'destroy']]);
     Route::post('/reservations/{reservation}/status', [ReservationAdminController::class, 'updateStatus'])->name('reservations.updateStatus');
     Route::post('/reservations/{reservation}/cancel', [ReservationAdminController::class, 'cancel'])->name('reservations.cancel');
     Route::get('/reservations/filter', [ReservationAdminController::class, 'filter'])->name('reservations.filter');
-    Route::get('/reservations/export', [ReservationAdminController::class, 'export'])->name('reservations.export');
 });

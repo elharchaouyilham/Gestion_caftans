@@ -17,8 +17,7 @@ class DashboardController extends Controller
         $totalProducts = Product::count();
         $totalReservations = Reservation::count();
         $pendingReservations = Reservation::where('status', 'pending')->count();
-        $totalClients = User::where('role_id', 2)->count(); // 2 = client role
-        $totalRevenue = Reservation::where('status', 'completed')->sum('total_amount');
+        $totalClients = User::where('role_id', 2)->count(); // 2 = role de cliente
 
         // Recent reservations
         $recentReservations = Reservation::with('product', 'user')
@@ -26,7 +25,7 @@ class DashboardController extends Controller
             ->limit(5)
             ->get();
 
-        // Product statistics
+        //  statistics
         $topProducts = Product::withCount('reservations')
             ->orderBy('reservations_count', 'DESC')
             ->limit(5)
@@ -38,7 +37,7 @@ class DashboardController extends Controller
                 'total_reservations' => $totalReservations,
                 'pending_reservations' => $pendingReservations,
                 'total_clients' => $totalClients,
-                'total_revenue' => $totalRevenue,
+               
             ],
             'recentReservations' => $recentReservations,
             'topProducts' => $topProducts

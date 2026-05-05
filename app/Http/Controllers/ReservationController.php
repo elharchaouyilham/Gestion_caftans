@@ -15,7 +15,7 @@ class ReservationController extends Controller
     {
         $products = Product::all();
 
-        // Pre-select product if provided via URL parameter
+   
         $preSelectedProductId = request('product_id');
         $preSelectedForfaitId = request('forfait_id');
 
@@ -31,7 +31,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request
+        // Validation
         $validated = $request->validate([
             'event_date' => 'required|date|after_or_equal:today',
             'return_date' => 'required|date|after:event_date',

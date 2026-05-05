@@ -113,46 +113,4 @@ class ReservationAdminController extends Controller
         ]);
     }
 
-    /**
-     * Export reservations to CSV
-     */
-    public function export(Request $request)
-    {
-        $query = Reservation::with('product', 'client');
-
-        if ($request->has('status')) {
-            $query->where('status', $request->status);
-        }
-
-        $reservations = $query->get();
-
-        $filename = 'reservations_' . date('Y-m-d_H-i-s') . '.csv';
-        $headers = [
-            'Content-Type' => 'text/csv; charset=utf-8',
-            'Content-Disposition' => "attachment; filename=\"$filename\""
-        ];
-
-        $handle = fopen('php://output', 'w');
-        fputcsv($handle, ['Produit', 'Client', 'Téléphone', 'Date Réservation', 'Date Retour', 'Statut', 'Montant']);
-
-        foreach ($reservations as $res) {
-            fputcsv($handle, [
-                $res->product->nom ?? '',
-                $res->client->name ?? $res->client_name ?? '',
-                $res->client->phone ?? $res->client_phone ?? '',
-                $res->date_reservation->format('Y-m-d'),
-                $res->date_retour->format('Y-m-d'),
-                $res->status,
-                $res->product->prix ?? ''
-            ]);
-        }
-
-        fclose($handle);
-
-        return response()->stream(
-            function () {},
-            200,
-            $headers
-        );
-    }
 }

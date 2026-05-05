@@ -105,7 +105,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach ([['name' => 'Caftan Royal Jawhara', 'price' => 1500, 'img' => 'https://images.unsplash.com/photo-1583391733958-65521b181dbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80', 'badge' => 'Populaire'], ['name' => 'Caftan Elegance Moderne', 'price' => 1800, 'img' => 'https://images.unsplash.com/photo-1515562141207-6811bcb33eaf?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80', 'badge' => 'Nouveau'], ['name' => 'Mdamma Or Impérial', 'price' => 1200, 'img' => 'https://images.unsplash.com/photo-1541417904180-8175f6904f90?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80', 'badge' => 'Premium'], ['name' => 'Couronne Royale', 'price' => 450, 'img' => 'https://images.unsplash.com/photo-1599643478514-4a4e03105151?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80', 'badge' => 'Favori']] as $item)
+                @foreach ([['name' => 'Caftan Royal Jawhara', 'price' => 1500, 'img' => 'https://as2.ftcdn.net/v2/jpg/19/95/18/33/1000_F_1995183317_NF0fdER0McqL75dbfwvM6QOoMwosZE61.jpg', 'badge' => 'Populaire'],
+                     ['name' => 'Caftan Elegance Moderne', 'price' => 1800, 'img' => 'https://as1.ftcdn.net/v2/jpg/15/30/01/68/1000_F_1530016885_X4AGFwCkOFEWf1edFSoAOaqWuzeLuzqk.jpg', 'badge' => 'Nouveau'], 
+                     ['name' => 'Mdamma Or Impérial', 'price' => 1200, 'img' => 'https://as2.ftcdn.net/v2/jpg/10/42/29/63/1000_F_1042296320_DAAeiiKu0yD0yirwmM85lPVQHuXbx77h.jpg', 'badge' => 'Premium'],
+                      ['name' => 'Couronne Royale', 'price' => 450, 'img' => 'https://as2.ftcdn.net/v2/jpg/12/66/00/57/1000_F_1266005746_Xu9WfbdefsVkoTTlVcRNKYhmWcLBdJHu.jpg', 'badge' => 'Favori']] as $item)
                     <div
                         class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group">
                         <div class="relative h-64 overflow-hidden bg-gray-100">
@@ -147,8 +150,8 @@
                 <!-- Caftans -->
                 <div class="relative group overflow-hidden rounded-2xl h-80">
                     <img class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                        src="https://images.unsplash.com/photo-1595777707502-221a2eaf822f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Caftans">
+                        src="https://as1.ftcdn.net/v2/jpg/19/95/18/44/1000_F_1995184471_Hsjp6bubbeCeFIEXRKwNHWPiyGz7gwAq.jpg"
+                        alt="">
                     <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition"></div>
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
                         <h3 class="text-3xl font-serif font-bold text-white mb-4">Caftans de Mariée</h3>
@@ -160,8 +163,8 @@
                 <!-- Accessories -->
                 <div class="relative group overflow-hidden rounded-2xl h-80">
                     <img class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                        src="https://images.unsplash.com/photo-1599643478514-4a4e03105151?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Accessoires">
+                        src="https://as1.ftcdn.net/v2/jpg/01/45/63/02/1000_F_145630292_vSqK1D5qDpsgSUvIBjXT5go5Vzt0hnuT.jpg"
+                        alt="">
                     <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition"></div>
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
                         <h3 class="text-3xl font-serif font-bold text-white mb-4">Accessoires</h3>
@@ -173,8 +176,8 @@
                 <!-- Forfaits -->
                 <div class="relative group overflow-hidden rounded-2xl h-80">
                     <img class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                        src="https://images.unsplash.com/photo-1600521605632-15f184e622b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Forfaits">
+                        src="https://as1.ftcdn.net/v2/jpg/16/62/12/02/1000_F_1662120297_OwpBHag1huxjuFHPSF2XLjM4zhJ7XVjX.jpg"
+                        alt="">
                     <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition"></div>
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
                         <h3 class="text-3xl font-serif font-bold text-white mb-4">Forfaits Mariage</h3>

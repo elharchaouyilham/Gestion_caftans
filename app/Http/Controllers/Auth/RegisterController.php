@@ -42,7 +42,7 @@ class RegisterController extends Controller
                 'status' => 'active'
             ]);
 
-            // Login the newly created user
+            // Login the user DIRECTLY
             Auth::login($user);
 
             return redirect()->route('home')->with('success', 'Compte créé avec succès!');

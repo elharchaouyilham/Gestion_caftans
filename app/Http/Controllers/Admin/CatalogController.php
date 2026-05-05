@@ -107,31 +107,4 @@ class CatalogController extends Controller
             ->with('success', 'Produit supprimé avec succès!');
     }
 
-    public function categories()
-    {
-        $categories = Category::with('products')->paginate(15);
-
-        return view('admin.catalog.categories', [
-            'categories' => $categories
-        ]);
-    }
-
-
-    public function storeCategory(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:categories'
-        ]);
-
-        Category::create($validated);
-
-        return back()->with('success', 'Catégorie créée avec succès!');
-    }
-
-    public function destroyCategory(Category $category)
-    {
-        $category->delete();
-
-        return back()->with('success', 'Catégorie supprimée avec succès!');
-    }
 }

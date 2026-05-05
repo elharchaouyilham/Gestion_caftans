@@ -62,7 +62,7 @@
                                 class="absolute inset-0 bg-[#d4af37] {{ $key % 2 == 0 ? 'translate-x-2 sm:translate-x-4' : '-translate-x-2 sm:-translate-x-4' }} translate-y-2 sm:translate-y-4 rounded-xl -z-10">
                             </div>
                             <img class="rounded-xl shadow-lg w-full h-64 sm:h-80 lg:h-[500px] object-cover"
-                                src="{{ $forfait->url ?? 'https://images.unsplash.com/photo-1583391733958-65521b181dbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' }}"
+                                src="https://as2.ftcdn.net/v2/jpg/12/66/00/57/1000_F_1266005746_Xu9WfbdefsVkoTTlVcRNKYhmWcLBdJHu.jpg"
                                 alt="{{ $forfait->nom }}">
                         </div>
                     </div>

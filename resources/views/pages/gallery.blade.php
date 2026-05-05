@@ -19,55 +19,55 @@
                     $galleryImages = [
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/10/42/29/63/1000_F_1042296320_DAAeiiKu0yD0yirwmM85lPVQHuXbx77h.jpg',
                             'title' => 'Caftan Royal Jawhara',
                             'category' => 'Caftans',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1583391733958-65521b181dbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/12/66/00/57/1000_F_1266005746_Xu9WfbdefsVkoTTlVcRNKYhmWcLBdJHu.jpg',
                             'title' => 'Caftan Traditionnel',
                             'category' => 'Caftans',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1515562141207-6811bcb33eaf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as1.ftcdn.net/v2/jpg/15/30/01/68/1000_F_1530016885_X4AGFwCkOFEWf1edFSoAOaqWuzeLuzqk.jpg',
                             'title' => 'Caftan Moderne',
                             'category' => 'Caftans',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1599643478514-4a4e03105151?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/12/66/01/61/1000_F_1266016191_Icgbt5vwfrMitot3lucCxzJy6ruqtfzQ.jpg',
                             'title' => 'Couronnes & Bijoux',
                             'category' => 'Accessoires',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1541417904180-8175f6904f90?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as1.ftcdn.net/v2/jpg/10/20/64/20/1000_F_1020642041_5ySvj1XMvjUvbw7otk1Cy6xF4hu5HPiC.jpg',
                             'title' => 'Mdamma Or',
                             'category' => 'Accessoires',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1599643478514-4a4e03105151?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/03/21/29/51/1000_F_321295114_8PKQjB1ZrE7xStqAZxjj1RlpfnqMvKMt.jpg',
                             'title' => 'Ensemble Complet',
                             'category' => 'Forfaits',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1600521605632-15f184e622b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as1.ftcdn.net/v2/jpg/03/66/27/64/1000_F_366276496_NcuxOVFEFDNUqA0Mc8azrtoOW8Wh29FF.jpg',
                             'title' => 'Mariage Traditionnel',
                             'category' => 'Forfaits',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1595777707502-221a2eaf822f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/10/20/63/09/1000_F_1020630982_lx8L0QUfzkwDxfj4ZGdCKxOYLgePvTYd.jpg',
                             'title' => 'Cérémonie Henné',
                             'category' => 'Forfaits',
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                                'https://as2.ftcdn.net/v2/jpg/12/66/01/61/1000_F_1266016191_Icgbt5vwfrMitot3lucCxzJy6ruqtfzQ.jpg',
                             'title' => 'Fiançailles Chic',
                             'category' => 'Caftans',
                         ],

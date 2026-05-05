@@ -138,10 +138,10 @@ class ProductController extends Controller
     private function getFilterOptions()
     {
         return [
-            'styles' => Product::distinct()->pluck('style')->filter()->values()->sort()->toArray(),
+            'styles' => Product::distinct()->pluck('style') ->filter()->values()->sort()->toArray(), //une seule colonne ou une valeur specifique
             'colors' => Product::distinct()->pluck('color')->filter()->values()->sort()->toArray(),
             'sizes' => Product::distinct()->pluck('size')->filter()->values()->sort()->toArray(),
-            'ceremonyTypes' => Product::distinct()->pluck('ceremony_type')->filter()->values()->sort()->toArray(),
+            'ceremonyTypes' => Product::distinct()->pluck('ceremony_type')->filter()->values()->sort()->toArray(), // from col to array
             'priceRange' => [
                 'min' => Product::min('prix') ?? 0,
                 'max' => Product::max('prix') ?? 5000
